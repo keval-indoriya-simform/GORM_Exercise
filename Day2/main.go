@@ -313,9 +313,9 @@ func main() {
 	//db.Create(&Department{Dept_name: "Marketing", Location: "Pune"})
 
 	//1
-	//var value = map[string]interface{}{}
-	//db.Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("MAX(salary),MIN(salary)").Where("dp.dept_name=? AND dp.location=?", "HR", "Banglore").Find(&value)
-	//fmt.Println(value)
+	//  var value = map[string]interface{}{}
+	//	db.Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("MAX(salary),MIN(salary)").Where("dp.dept_name=? AND dp.location=?", "HR", "Banglore").Find(&value)
+	//	fmt.Println(value)
 
 	//2
 	//var count int64
@@ -353,12 +353,12 @@ func main() {
 	//7
 	//1st way
 	//db.Debug().Raw("Create table employee_hr_admin AS ?", db.Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("emp_id, emp_name, dp.dept_name, location").Where("dp.dept_name IN ?", []string{"HR", "Admin"})).Row()
-	db.Debug().Exec("Create table employee_hr_admin AS ?", db.Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("emp_id, emp_name, dp.dept_name, location").Where("dp.dept_name IN ?", []string{"HR", "Admin"}))
+	//db.Debug().Exec("Create table employee_hr_admin AS ?", db.Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("emp_id, emp_name, dp.dept_name, location").Where("dp.dept_name IN ?", []string{"HR", "Admin"}))
 	//2nd way
 	//db.Raw("Create table employee_hr_admin AS SELECT emp_id, emp_name, dp.dept_name, location FROM employees inner join departments as dp on employees.dept_name=dp.dept_name WHERE dp.dept_name IN ('HR','Admin')").Row()
 
 	//8
-	db.Exec("insert into employee_hr_admin ?", db.Debug().Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("emp_id, emp_name, dp.dept_name, location").Where("dp.dept_name = ?", "IT"))
+	//db.Exec("insert into employee_hr_admin ?", db.Debug().Model(&Employee{}).Joins("inner join departments as dp on employees.dept_name=dp.dept_name").Select("emp_id, emp_name, dp.dept_name, location").Where("dp.dept_name = ?", "IT"))
 
 	//9
 	//db.Debug().Preload("Department").Table("employees as e").Where("salary > (?)",
